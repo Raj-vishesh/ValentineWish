@@ -1,20 +1,56 @@
+/* --------------------
+   RESET
+-------------------- */
 html {
   box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* --------------------
+   BODY – VALENTINE BACKGROUND
+-------------------- */
 body {
   margin: 0;
   font-family: "Work Sans", sans-serif;
+  background: linear-gradient(
+    135deg,
+    #ffdde1 0%,
+    #ee9ca7 50%,
+    #ff6f91 100%
+  );
+  overflow-x: hidden;
 }
 
+/* --------------------
+   MAIN CONTAINER (GLASS CARD)
+-------------------- */
 .container {
   height: 100vh;
-  width: 100vh;
-  margin: 0 auto;
+  width: 90%;
+  max-width: 900px;
+  margin: 40px auto;
   text-align: center;
-  visibility: hidden;
+  visibility: visible;
   position: relative;
   overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  box-shadow: 0 30px 70px rgba(255, 105, 135, 0.45);
+}
+
+/* Positioning sections */
+.container > div {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 20vh;
 }
 
 .container div.six {
@@ -28,17 +64,15 @@ body {
   height: 100vh;
   position: fixed;
   top: 0;
+  pointer-events: none;
 }
 
-.container > div {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 20vh;
-}
-
+/* --------------------
+   HEADINGS & TEXT
+-------------------- */
 .one {
   font-size: 4.5rem;
+  color: #e91e63;
 }
 
 .one > img {
@@ -51,38 +85,12 @@ body {
 .two {
   font-size: 1.2rem;
   font-weight: lighter;
+  color: #7a2c40;
 }
 
 .three {
   font-size: 3rem;
-}
-
-.four .text-box {
-  width: 600px;
-  margin: 0 auto;
-  border: 3px solid #aaa;
-  border-radius: 5px;
-  padding: 10px;
-  position: relative;
-}
-
-.text-box p {
-  margin: 0;
-  text-align: left;
-}
-
-.text-box span {
-  visibility: hidden;
-}
-
-.text-box .fake-btn {
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-  color: #fff;
-  background-color: rgb(21, 161, 237);
-  padding: 5px 8px;
-  border-radius: 3px;
+  color: #c2185b;
 }
 
 .five p {
@@ -93,13 +101,16 @@ body {
 }
 
 .idea-3 strong {
-  padding: 3px 5px;
-  border-radius: 3px;
+  padding: 4px 8px;
+  border-radius: 8px;
   display: inline-block;
+  background: #ffd1dc;
+  color: #c2185b;
 }
 
 .five .idea-5 {
   font-size: 4rem;
+  color: #ff4081;
 }
 
 .idea-5 span,
@@ -110,8 +121,49 @@ body {
 
 .idea-6 span {
   font-size: 15rem;
+  color: #e91e63;
 }
 
+/* --------------------
+   CHAT BOX
+-------------------- */
+.four .text-box {
+  width: 600px;
+  margin: 0 auto;
+  border: 3px solid #ff5c8a;
+  border-radius: 15px;
+  padding: 15px;
+  position: relative;
+  background: #fff0f5;
+  box-shadow: 0 10px 25px rgba(233, 30, 99, 0.3);
+}
+
+.text-box p {
+  margin: 0;
+  text-align: left;
+  color: #6b2f4a;
+}
+
+.text-box span {
+  visibility: hidden;
+}
+
+.text-box .fake-btn {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  color: #fff;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255, 65, 108, 0.5);
+}
+
+/* --------------------
+   IMAGE SECTION
+-------------------- */
 .six {
   position: relative;
 }
@@ -120,20 +172,18 @@ body {
   display: inline-block;
   max-width: 45%;
   height: auto;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(233, 30, 99, 0.3);
 }
 
-.six .hat {
-  position: absolute;
-  width: 80px;
-  top: -35px;
-  left: 41.5%;
-  /* transform: scale(0.1); */
-}
-
+/* --------------------
+   BALLOONS
+-------------------- */
 .baloons img {
-  display: inline-block;
   position: absolute;
-  width: 200px;
+  width: 160px;
+  opacity: 0.85;
+  filter: drop-shadow(0 10px 20px rgba(255, 0, 100, 0.4));
 }
 
 .baloons img:nth-child(even) {
@@ -148,119 +198,53 @@ body {
   left: 30%;
 }
 
+/* --------------------
+   CONFETTI
+-------------------- */
 .eight svg {
   width: 25px;
   position: absolute;
   top: 0;
   left: 0;
   visibility: hidden;
-  z-index: -1;
+  z-index: 5;
 }
 
-.eight svg:nth-child(1) {
-  top: 7vh;
-  left: 5vw;
-  fill: #bd6ecf;
-}
-
-.eight svg:nth-child(2) {
-  top: 23vh;
-  left: 35vw;
-  fill: #7dd175;
-}
-
-.eight svg:nth-child(3) {
-  top: 33vh;
-  left: 23vw;
-  fill: #349d8b;
-}
-
-.eight svg:nth-child(4) {
-  top: 43vh;
-  left: 57vw;
-  fill: #347a9d;
-}
-
-.eight svg:nth-child(5) {
-  top: 68vh;
-  left: 7vw;
-  fill: #c66053;
-}
-
-.eight svg:nth-child(6) {
-  top: 42vh;
-  left: 77vw;
-  fill: #bfaa40;
-}
-
-.eight svg:nth-child(7) {
-  top: 68vh;
-  left: 83vw;
-  fill: #e3bae8;
-}
-
-.eight svg:nth-child(8) {
-  top: 86vh;
-  left: 37vw;
-  fill: #8762cb;
-}
-
-.eight svg:nth-child(9) {
-  top: 94vh;
-  left: 87vw;
-  fill: #9a90da;
-}
-
+/* --------------------
+   FINAL SCREEN
+-------------------- */
 .wish-hbd {
   font-size: 3em;
   margin: 0;
-  /* text-transform: uppercase; */
+  color: #d81b60;
 }
 
 .wish h5 {
   font-weight: lighter;
   font-size: 2rem;
   margin: 10px 0 0;
+  color: #7a2c40;
 }
 
 .nine p {
   font-size: 2rem;
   font-weight: lighter;
+  color: #6b2f4a;
 }
 
 #replay {
   z-index: 3;
   cursor: pointer;
+  color: #e91e63;
 }
 
-/* Media Queries */
-@media screen and (max-height: 1000px) {
-  .six .hat {
-    left: 40%;
-  }
-}
-
-@media screen and (max-height: 800px) {
-  .six .hat {
-    left: 37%;
-  }
-}
-
-@media screen and (max-height: 700px) {
-  .six .hat {
-    left: 32%;
-  }
-}
-
-@media screen and (max-height: 850px) and (max-width: 450px) {
-  .six .hat {
-    left: 32%;
-  }
-}
-
+/* --------------------
+   MOBILE
+-------------------- */
 @media screen and (max-width: 500px) {
   .container {
-    width: 90%;
+    width: 95%;
+    margin: 20px auto;
   }
 
   .four .text-box {
@@ -268,8 +252,9 @@ body {
   }
 
   .text-box .fake-btn {
-    right: 5px;
-    bottom: -38px;
+    position: static;
+    margin-top: 12px;
+    display: inline-block;
   }
 
   .idea-5 span {
@@ -278,11 +263,6 @@ body {
 
   .idea-6 span {
     font-size: 10rem;
-  }
-
-  .six .hat {
-    width: 50px;
-    top: -20px;
   }
 
   .wish-hbd {
@@ -295,6 +275,5 @@ body {
 
   .nine p {
     font-size: 1.5rem;
-    font-weight: lighter;
   }
 }
